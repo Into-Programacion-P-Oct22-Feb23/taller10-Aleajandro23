@@ -5,10 +5,43 @@
  */
 package paquete2;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  *
  * @author reroes
  */
 public class Problema02 {
-    
+
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        entrada.useLocale(Locale.US);
+
+        String[] vendedores = {"Jessica Cole", "Robert Wallace"};
+        double[][] ventas = new double[2][5];
+        String[] day = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
+        double suma = 0;
+        int file;
+        
+        
+        
+        for (int fila = 0; fila < ventas.length; fila++) {
+            for (int columna = 0; columna < ventas[fila].length; columna++) {
+                System.out.println(vendedores[fila] + " ingrese las ventas del "
+                        + "dia: " + day[columna]);
+                
+                ventas[fila][columna] = entrada.nextDouble();
+                
+                suma = suma + ventas [fila][columna];
+
+            }
+
+        }
+         for (file = 0; file < ventas.length; file++) {
+            System.out.printf("Vendedor(a) %s\n", vendedores[file]);
+        }
+        System.out.printf("Ha realizado un total de $%.2f en ventas.\n", 
+                suma);
+    }
 }
